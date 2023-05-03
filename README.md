@@ -10,7 +10,7 @@ This project is a Java Spring Boot application that demonstrates the usage of va
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Spring Boot Web            | Framework for building web applications with Spring Boot.                                                                                                  |
 | Spring Data JPA            | Interface for working with relational databases using Java Persistence API (JPA).                                                                          |
-| Spring Boot DevTools      | Provides fast application restarts, LiveReload, and configurations for enhanced development experience. (See how to configure it [here](#dev-tools-config) |
+| Spring Boot DevTools      | Provides fast application restarts, LiveReload, and configurations for enhanced development experience. (See how to configure it) [here](#dev-tools-config) |
 | H2 Database                | Lightweight, in-memory database for testing and development.                                                                                               |
 | Lombok                     | Library that helps to reduce boilerplate code in Java.                                                                                                     |
 | Spring Data Rest           | Quick and easy way to create RESTful web services based on Spring Data repositories.                                                                       |
