@@ -6,19 +6,19 @@ Thi project is a Java Spring Boot application that demonstrates the usage of var
 
 ## Dependencies:
 
-| Dependency                 | Description                                                                                                                                                              |
-|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Spring Boot Web            | Framework for building web applications with Spring Boot.                                                                                                                |
-| Spring Data JPA            | Interface for working with relational databases using Java Persistence API (JPA).                                                                                        |
-| Spring Boot DevTools      | Provides fast application restarts, LiveReload, and configurations for enhanced development experience. (See how to configure it <a href = "#DevTools Configuration">here</a>) |
-| H2 Database                | Lightweight, in-memory database for testing and development.                                                                                                             |
-| Lombok                     | Library that helps to reduce boilerplate code in Java.                                                                                                                   |
-| Spring Data Rest           | Quick and easy way to create RESTful web services based on Spring Data repositories.                                                                                     |
-| Spring for GraphQL      | Build GraphQL applications with Spring for GraphQL and GraphQL Java.                                                                                                     |
+| Dependency                 | Description                                                                                                                                                |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Spring Boot Web            | Framework for building web applications with Spring Boot.                                                                                                  |
+| Spring Data JPA            | Interface for working with relational databases using Java Persistence API (JPA).                                                                          |
+| Spring Boot DevTools      | Provides fast application restarts, LiveReload, and configurations for enhanced development experience. (See how to configure it [here](#dev-tools-config) |
+| H2 Database                | Lightweight, in-memory database for testing and development.                                                                                               |
+| Lombok                     | Library that helps to reduce boilerplate code in Java.                                                                                                     |
+| Spring Data Rest           | Quick and easy way to create RESTful web services based on Spring Data repositories.                                                                       |
+| Spring for GraphQL      | Build GraphQL applications with Spring for GraphQL and GraphQL Java.                                                                                       |
 
 
 
 
-### [!test]DevTools Configuration
+### <h3 id = "dev-tools-config">DevTools Configuration in IntelliJ</h3>
 1. Go to *'Settings/Build, Execution, Deployment/Compiler'* and check *'Build Project Automatically'*
 2. Go to *'Settings/Advanced settings'* and check *'Allow auto-make to start even if developed application is currently running '*
