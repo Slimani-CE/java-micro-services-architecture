@@ -28,6 +28,23 @@ This project is a Java Spring Boot application that demonstrates the usage of va
 2. Copie the `/v3/api-docs` link and import it on your Postman interface to generate the OpenAPI definition
 ![Open API Documentation](assets/postmantest2.png)
 
+### Projections with REST API
+A simple projection of Ids and Account types:
+```java
+@Projection(name = "p1", types = Account.class)
+public interface AccountProjection {
+    public Double getId();
+    public AccountType getType();
+}
+```
+To use this projection
+```
+ http://localhost:8082/accounts?projection=p1
+```
+Results:
+![projection result](assets/projection1.png)
+
+
 ### <h3 id = "dev-tools-config">DevTools Configuration in IntelliJ</h3>
 1. Go to *'Settings/Build, Execution, Deployment/Compiler'* and check *'Build Project Automatically'*
 ![devtools step 1](assets/devtools%20step%201.png)
