@@ -16,7 +16,7 @@ public class Account {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date createdAt;
-    private double balance;
+    private Double balance;
     private String currency;
     @Enumerated(EnumType.STRING)
     private AccountType type;

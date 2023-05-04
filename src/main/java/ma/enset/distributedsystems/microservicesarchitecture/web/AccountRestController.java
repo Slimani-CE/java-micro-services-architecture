@@ -1,14 +1,15 @@
 package ma.enset.distributedsystems.microservicesarchitecture.web;
 
 import ma.enset.distributedsystems.microservicesarchitecture.entities.Account;
+import ma.enset.distributedsystems.microservicesarchitecture.enums.AccountType;
 import ma.enset.distributedsystems.microservicesarchitecture.exceptions.AccountNotFoundException;
 import ma.enset.distributedsystems.microservicesarchitecture.repositories.AccountRepository;
-import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class AccountRestController {
     private AccountRepository accountRepository;
 
@@ -31,13 +32,17 @@ public class AccountRestController {
         return accountRepository.save(account);
     }
 
-    @PutMapping("/accounts")
+    @PutMapping("/accounts/{id}")
     public Account update(@RequestBody Account account, @PathVariable long id){
-        account.setId(id);
-        return accountRepository.save(account);
+        Account tmpAccount = accountRepository.findById(id).orElseThrow(() -> new AccountNotFoundException(String.format("Account with Id %d not found !", id)));
+        if(account.getCreatedAt() != null) tmpAccount.setCreatedAt(account.getCreatedAt());
+        if(account.getBalance() != null) tmpAccount.setBalance(account.getBalance());
+        if(account.getCurrency() != null) tmpAccount.setCurrency(account.getCurrency());
+        if(account.getType() != null) tmpAccount.setType(account.getType());
+        return accountRepository.save(tmpAccount);
     }
 
-    @DeleteMapping("/accounts")
+    @DeleteMapping("/accounts/{id}")
     public void delete(@PathVariable long id){
         accountRepository.deleteById(id);
     }

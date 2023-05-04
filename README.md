@@ -6,19 +6,27 @@ This project is a Java Spring Boot application that demonstrates the usage of va
 
 ## Dependencies:
 
-| Dependency                 | Description                                                                                                                                                |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Spring Boot Web            | Framework for building web applications with Spring Boot.                                                                                                  |
-| Spring Data JPA            | Interface for working with relational databases using Java Persistence API (JPA).                                                                          |
-| Spring Boot DevTools      | Provides fast application restarts, LiveReload, and configurations for enhanced development experience. (See how to configure it [here](#dev-tools-config)) |
-| H2 Database                | Lightweight, in-memory database for testing and development.                                                                                               |
-| Lombok                     | Library that helps to reduce boilerplate code in Java.                                                                                                     |
-| Spring Data Rest           | Quick and easy way to create RESTful web services based on Spring Data repositories.                                                                       |
-| Spring for GraphQL      | Build GraphQL applications with Spring for GraphQL and GraphQL Java.                                                                                       |
+| Dependency           | Description                                                                                                                                                                           |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Spring Boot Web      | Framework for building web applications with Spring Boot.                                                                                                                             |
+| Spring Data JPA      | Interface for working with relational databases using Java Persistence API (JPA).                                                                                                     |
+| Spring Boot DevTools | Provides fast application restarts, LiveReload, and configurations for enhanced development experience. (See how to configure it [here](#dev-tools-config))                           |
+| Spring Doc OpenAPI   | java library helps to automate the generation of API documentation using spring boot projects.(<a href="https://springdoc.org/v2/" target = "_blank">Open API for spring-boot v3</a>) |
+| H2 Database          | Lightweight, in-memory database for testing and development.                                                                                                                          |
+| Lombok               | Library that helps to reduce boilerplate code in Java.                                                                                                                                |
+| Spring Data Rest     | Quick and easy way to create RESTful web services based on Spring Data repositories.                                                                                                  |
+| Spring for GraphQL   | Build GraphQL applications with Spring for GraphQL and GraphQL Java.                                                                                                                  |
 
-## REST API test with Postman
+## REST API test
+### REST API test with Postman
 ![Test REST API with Postman](assets/postmantest1.png)
 
+### Open API Documentation and test with Postman
+1. Navigate to the following URL in your browser: `http://localhost:8082/swagger-ui.html`
+![Open API Documentation](assets/openapi.png)
+
+2. Copie the `/v3/api-docs` link and import it on your Postman interface to generate the OpenAPI definition
+![Open API Documentation](assets/postmantest2.png)
 
 ### <h3 id = "dev-tools-config">DevTools Configuration in IntelliJ</h3>
 1. Go to *'Settings/Build, Execution, Deployment/Compiler'* and check *'Build Project Automatically'*
