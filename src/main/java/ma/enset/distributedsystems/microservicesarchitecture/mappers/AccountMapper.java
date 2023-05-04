@@ -7,6 +7,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class AccountMapper {
 
@@ -21,6 +23,7 @@ public class AccountMapper {
     public Account accountFromRequest(AccountRequestDTO accountRequestDTO){
         Account account = new Account();
         BeanUtils.copyProperties(accountRequestDTO, account);
+        account.setCreatedAt(new Date());
         return account;
     }
 }

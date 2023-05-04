@@ -6,4 +6,5 @@ import ma.enset.distributedsystems.microservicesarchitecture.entities.Account;
 
 public interface AccountService {
     public AccountResponseDTO addAccount(AccountRequestDTO accountRequestDTO);
+    public AccountResponseDTO updateAccount(AccountRequestDTO accountRequestDTO, long id);
 }

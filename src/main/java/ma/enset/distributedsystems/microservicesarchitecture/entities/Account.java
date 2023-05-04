@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.enset.distributedsystems.microservicesarchitecture.enums.AccountType;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
 

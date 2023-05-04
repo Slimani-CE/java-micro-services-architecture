@@ -17,6 +17,7 @@ This project is a Java Spring Boot application that demonstrates the usage of va
 | Spring Data Rest     | Quick and easy way to create RESTful web services based on Spring Data repositories.                                                                                                  |
 | Spring for GraphQL   | Build GraphQL applications with Spring for GraphQL and GraphQL Java.                                                                                                                  |
 
+ 
 ## REST API test
 ### REST API test with Postman
 ![Test REST API with Postman](assets/postmantest1.png)
@@ -48,6 +49,55 @@ To use this projection
 Results:
 ![projection result](assets/projection1.png)
 
+## GraphQL Web service
+1. Configure the GraphQL schema. And to do so; we create a graphqls file in our resources folder.
+2. Simple schema for CRUD operations
+
+Implementation of these functions is provided in the [AccountGraphQLController](src/main/java/ma/enset/distributedsystems/microservicesarchitecture/web/AccountGraphQLController.java)
+```graphql
+type Query {
+    getAccounts : [AccountResponseDTO]
+    getAccountById(id: Float): AccountResponseDTO
+}
+
+type Mutation{
+    addAccount(accountRequestDTO: AccountRequestDTO) : AccountResponseDTO
+    updateAccount(accountRequestDTO: AccountRequestDTO, id: Float) : AccountResponseDTO
+    deleteAccount(id: Float) : Boolean
+}
+
+input AccountRequestDTO{
+    balance: Float,
+    currency: String,
+    type: String
+}
+
+type AccountResponseDTO {
+    id: String,
+    createdAt: String,
+    balance: Float,
+    currency: String,
+    type: String
+}
+
+```
+3. Enable GraphQL web service in the application.properties file
+```properties
+    spring.graphql.graphiql.enabled = true
+```
+4. Test the GraphQL service using GraphQL user interface by navigating to [http://localhost:8082/graphiql](http://localhost:8082/graphiql)
+   1. Get account by id
+   ![Graphql test illustration](assets/graphqltest1.png)
+   
+   2. Add new account.
+   ![Graphql test illustration](assets/graphqltest2.png)
+   This shows also a good practice of how to pass argument values to the function. And that by using the Variables section.
+   
+   3. Update an account
+      ![Graphql test illustration](assets/graphqltest3.png)
+   
+   4. Delete an account
+      ![Graphql test illustration](assets/graphqltest4.png)   
 
 ### <h3 id = "dev-tools-config">DevTools Configuration in IntelliJ</h3>
 1. Go to *'Settings/Build, Execution, Deployment/Compiler'* and check *'Build Project Automatically'*

@@ -34,4 +34,20 @@ public class AccountServiceImpl implements AccountService {
         AccountResponseDTO responseDTO = accountMapper.responseFromAccount(savedAccount);
         return responseDTO;
     }
+
+    @Override
+    public AccountResponseDTO updateAccount(AccountRequestDTO accountRequestDTO, long id) {
+        // Mapping accountRequestDTO entity => Account entity
+        Account account = accountMapper.accountFromRequest(accountRequestDTO);
+        account.setId(id);
+
+        // Save Account entity and retrieve new Account entity with id
+        Account savedAccount = accountRepository.save(account);
+
+        // Mapping Account entity => AccountResponseDTO
+        AccountResponseDTO responseDTO = accountMapper.responseFromAccount(savedAccount);
+        return responseDTO;
+    }
+
+
 }
