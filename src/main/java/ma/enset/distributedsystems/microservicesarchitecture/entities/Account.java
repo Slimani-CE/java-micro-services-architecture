@@ -1,9 +1,6 @@
 package ma.enset.distributedsystems.microservicesarchitecture.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,9 +14,10 @@ import java.util.Date;
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 public class Account {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
     private Date createdAt;
     private double balance;
     private String currency;
+    @Enumerated(EnumType.STRING)
     private AccountType type;
 }
