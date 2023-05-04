@@ -22,6 +22,6 @@ This project is a Java Spring Boot application that demonstrates the usage of va
 
 ### <h3 id = "dev-tools-config">DevTools Configuration in IntelliJ</h3>
 1. Go to *'Settings/Build, Execution, Deployment/Compiler'* and check *'Build Project Automatically'*
-2. Go to *'Settings/Advanced settings'* and check *'Allow auto-make to start even if developed application is currently running '*
 ![devtools step 1](assets/devtools%20step%201.png)
+2. Go to *'Settings/Advanced settings'* and check *'Allow auto-make to start even if developed application is currently running '*
 ![devtools step 2](assets/devtools%20step%202.png)
