@@ -37,7 +37,7 @@ public interface AccountProjection {
     public AccountType getType();
 }
 ```
-<span style="color: tomato; font-family:arial; font-size: 20px">Note !</span>
+<p style="color: tomato; font-family:arial; font-size: 20px">Note !</p>
 
 When you define a projection for an entity, it should be in the same package as the entity because Spring Data REST uses component scanning to find projections. If you define the projection in a different package, you will need to manually register it with Spring Data REST.
 
