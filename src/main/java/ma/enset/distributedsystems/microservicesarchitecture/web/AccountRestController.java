@@ -1,9 +1,11 @@
 package ma.enset.distributedsystems.microservicesarchitecture.web;
 
+import ma.enset.distributedsystems.microservicesarchitecture.dto.AccountRequestDTO;
+import ma.enset.distributedsystems.microservicesarchitecture.dto.AccountResponseDTO;
 import ma.enset.distributedsystems.microservicesarchitecture.entities.Account;
-import ma.enset.distributedsystems.microservicesarchitecture.enums.AccountType;
 import ma.enset.distributedsystems.microservicesarchitecture.exceptions.AccountNotFoundException;
 import ma.enset.distributedsystems.microservicesarchitecture.repositories.AccountRepository;
+import ma.enset.distributedsystems.microservicesarchitecture.service.AccountService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,9 +14,11 @@ import java.util.List;
 @RequestMapping("/api")
 public class AccountRestController {
     private AccountRepository accountRepository;
+    private AccountService accountService;
 
-    public AccountRestController(AccountRepository accountRepository) {
+    public AccountRestController(AccountRepository accountRepository, AccountService accountService) {
         this.accountRepository = accountRepository;
+        this.accountService = accountService;
     }
 
     @GetMapping("/accounts")
@@ -28,8 +32,8 @@ public class AccountRestController {
     }
 
     @PostMapping("/accounts")
-    public Account save(@RequestBody Account account){
-        return accountRepository.save(account);
+    public AccountResponseDTO save(@RequestBody AccountRequestDTO account){
+        return accountService.addAccount(account);
     }
 
     @PutMapping("/accounts/{id}")
