@@ -1,11 +1,15 @@
 package ma.enset.distributedsystems.microservicesarchitecture.web;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ma.enset.distributedsystems.microservicesarchitecture.dto.AccountRequestDTO;
 import ma.enset.distributedsystems.microservicesarchitecture.dto.AccountResponseDTO;
 import ma.enset.distributedsystems.microservicesarchitecture.entities.Account;
+import ma.enset.distributedsystems.microservicesarchitecture.entities.Customer;
 import ma.enset.distributedsystems.microservicesarchitecture.exceptions.AccountNotFoundException;
 import ma.enset.distributedsystems.microservicesarchitecture.repositories.AccountRepository;
+import ma.enset.distributedsystems.microservicesarchitecture.repositories.CustomerRepository;
 import ma.enset.distributedsystems.microservicesarchitecture.service.AccountService;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,10 +19,12 @@ import java.util.List;
 public class AccountRestController {
     private AccountRepository accountRepository;
     private AccountService accountService;
+    private CustomerRepository customerRepository;
 
-    public AccountRestController(AccountRepository accountRepository, AccountService accountService) {
+    public AccountRestController(AccountRepository accountRepository, AccountService accountService, CustomerRepository customerRepository) {
         this.accountRepository = accountRepository;
         this.accountService = accountService;
+        this.customerRepository = customerRepository;
     }
 
     @GetMapping("/accounts")
@@ -49,5 +55,10 @@ public class AccountRestController {
     @DeleteMapping("/accounts/{id}")
     public void delete(@PathVariable long id){
         accountRepository.deleteById(id);
+    }
+
+    @GetMapping("/customers")
+    public List<Customer> customers(){
+        return customerRepository.findAll();
     }
 }

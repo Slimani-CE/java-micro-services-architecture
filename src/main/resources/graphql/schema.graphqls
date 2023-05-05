@@ -1,6 +1,7 @@
 type Query {
     getAccounts : [AccountResponseDTO]
     getAccountById(id: Float): AccountResponseDTO
+    getCustomers: [Customer]
 }
 
 type Mutation{
@@ -21,4 +22,11 @@ type AccountResponseDTO {
     balance: Float,
     currency: String,
     type: String
+    customer: Customer
+}
+
+type Customer{
+    id: Float,
+    name: String,
+    accounts: [AccountResponseDTO]
 }
